@@ -6,6 +6,7 @@
 
   <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta name="description" content="This is meta description Sample. We can add up to 158.">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -37,30 +38,32 @@
 </head>
 
 <body>
-  <nav id="nav-bar">
+  <section id="nav-bar">
     <div class="container nav-container md-container">
       <!-- <h3>Logo</h3> -->
       <img src="/assets/brand-logo.png" alt="logo" class="small-logo" />
-      <ul class="nav">
-        <li class="nav-item">
-          <button class="btn btn-link" type="button" onclick="scrollNav('portfolio')">Portfolio</button>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-link" type="button" onclick="scrollNav('Gallery')">Gallery</button>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-link" type="button" onclick="scrollNav('contact-section')">Contact us</button>
-        </li>
-        <!-- <li class="nav-item">
+      <nav>
+        <ul class="nav">
+          <li class="nav-item portfolio-menu">
+            <button class="btn btn-link" type="button" onclick="scrollNav('portfolio')">Portfolio</button>
+          </li>
+          <li class="nav-item Gallery-menu">
+            <button class="btn btn-link" type="button" onclick="scrollNav('Gallery')">Gallery</button>
+          </li>
+          <li class="nav-item contact-section-menu">
+            <button class="btn btn-link" type="button" onclick="scrollNav('contact-section')">Contact us</button>
+          </li>
+          <!-- <li class="nav-item">
           <button type="button" title="menu-btn" class="" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fas fa-bars"></i>
           </button>
         </li> -->
-      </ul>
+        </ul>
+      </nav>
     </div>
-  </nav>
+  </section>
   <section class="hero">
-    <div data-aos="fade-down" data-aos-duration="600">
+    <div>
       <!-- data-aos-duration="300" -->
       <img src="/assets/brand-logo.png" alt="logo" />
       <h1>مؤسسة الإسناد الماسي</h1>
@@ -75,9 +78,8 @@
           <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
         </svg>
       </div> -->
-      <h1 class="section-title">Portfolio</h1>
-      <section class="projects ting project-section slanted-div " style="position: relative;" data-aos="fade-left"
-        data-aos-duration="700">
+      <h2 class="section-title">Portfolio</h2>
+      <section class="projects ting project-section slanted-div " style="position: relative;">
         <div class="container md-container">
           <div class="row">
             <div class="col-md-8 project-text">
@@ -94,8 +96,7 @@
           </div>
         </div>
       </section>
-      <section class="projects ting project-section slanted-div" style="position: relative;" data-aos="fade-right"
-        data-aos-duration="700">
+      <section class="projects ting project-section slanted-div" style="position: relative;">
         <div class="container md-container">
           <div class="row">
             <div class="col-md-8 project-text">
@@ -118,8 +119,8 @@
         </svg>
       </div> -->
     </div>
-    <section class="caro Gallery" data-aos="fade-down" data-aos-duration="500">
-      <h1 class="section-title">Gallery</h1>
+    <section class="caro Gallery">
+      <h2 class="section-title">Gallery</h2>
       <div class="splide">
         <div class="splide__track">
           <ul class="splide__list">
@@ -139,52 +140,58 @@
         </div>
       </div>
     </section>
-
+  </div>
   </div>
   <section class="contact-section">
     <div class="container">
-      <h1>Contact Us</h1>
-      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2">
+      <h2>Contact Us</h2>
+      <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 contact-container flex-column-reverse flex-md-row">
         <div class="contact-col col">
           <form action="#" id="contact-form">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 form-row">
               <div class="contact-col col">
                 <label for="subject">Subject</label>
-                <input type="text" name="subject" id="subject">
+                <input type="text" name="subject" onkeyup="checkValue()" id="subject">
               </div>
               <div class="contact-col col">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" onkeyup="checkValue()" id="email">
               </div>
             </div>
             <div class="form-row">
               <label for="message">Message</label>
-              <textarea name="message" id="message" rows="4"></textarea>
+              <textarea name="message" onkeyup="checkValue()" id="message" rows="4"></textarea>
             </div>
             <div class="form-row">
-              <button id="sub" type="button" class="btn btn-light">Send</button>
+              <button id="sub" type="button" class="btn btn-light disabled">Send</button>
             </div>
           </form>
         </div>
-        <div class="contact-col col contact-info">
-          <br>
-          <ul class="contact-info">
-            <li class="icon solid fas fa-home">
-              sample<br>
-              1234 address<br>
-              00000-0000
-            </li>
-            <li class="icon solid fas fa-phone">
-              000 000-0000
-            </li>
-            <li class="icon solid fas fa-envelope"">
-              information@sample.com
-            </li>
-            <li class=" fab fa-instagram">
-              instagram.com/sample
-            </li>
-          </ul>
+        <div class="contact-col col contact-info p-0">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3711.5404638078016!2d39.19430460688411!3d21.525712482833352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ssa!4v1643813370486!5m2!1sen!2ssa"
+            width="100%" height="100%" style="border: 2px solid #647680;
+            border-radius: 0 7px 8px 0;
+            min-height: 413px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+      </div>
+      <div>
+        <ul class="contact-info d-flex flex-wrap">
+          <li class="icon solid fas fa-home">
+            sample<br>
+            1234 address<br>
+            00000-0000
+          </li>
+          <li class="icon solid fas fa-phone">
+            000 000-0000
+          </li>
+          <li class="icon solid fas fa-envelope"">
+            information@sample.com
+          </li>
+          <li class=" fab fa-instagram">
+            instagram.com/sample
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -218,7 +225,7 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"
     integrity="sha512-j+F4W//4Pu39at5I8HC8q2l1BNz4OF3ju39HyWeqKQagW6ww3ZF9gFcu8rzUbyTDY7gEo/vqqzGte0UPpo65QQ=="
     crossorigin="anonymous"></script> -->
-    <!-- <script src="aos.js"></script> -->
+  <!-- <script src="aos.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/js/splide.cjs.js"
     integrity="sha256-RZn7GtiZtqqAA5Qoq6AEW/HPXO3uChd6LOPm46qhgxU=" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
