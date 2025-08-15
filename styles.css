@@ -53,6 +53,10 @@ body {
 }
 
 .hero {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+
 	background-attachment: scroll, scroll, fixed;
 	background-image: url("./assets/top-3200.svg");
 	/* background-image: url("./assets/top-3200.svg"), url("/assets/overlay.png"),
@@ -61,7 +65,7 @@ body {
 	background-repeat: repeat-x, repeat, no-repeat;
 	background-size: 3200px 460px, auto, cover;
 	color: var(--font-light);
-	padding: 15em 0 20em 0;
+	/* padding: 15em 0 20em 0; */
 	position: relative;
 	text-align: center;
 }
@@ -208,12 +212,28 @@ li {
 .project-text {
 	color: white;
 	margin: auto !important;
+	text-align: right;
+}
+
+.project-text h2 {
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.project-text p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    opacity: 0.9;
 }
 .projects img {
 	width: 100%;
 	border-radius: 73%;
 	width: 280px;
 	height: 280px;
+	object-fit: cover;
 }
 
 .project-img-container {
@@ -311,6 +331,9 @@ ul.contact-info li:before {
 	width: 2.5em;
 }
 
+ul.contact-info li span {
+	font-family: 'Almarai', sans-serif !important;
+}
 ul.contact-info li {
 	text-align: center;
 	/* text-align: initial; */
@@ -365,7 +388,7 @@ h2 {
 	background: var(--content-div2);
 }
 .slanted-div:nth-child(odd) {
-	direction: rtl;
+	direction: ltr;
 	text-align: initial;
 }
 /* where the magic happens */
@@ -381,11 +404,6 @@ h2 {
 	transform-origin: right top;
 	transform: skewY(-3deg);
 }
-.slanted-div:before,
-.slanted-div:after {
-	/* transform: skewY(-3deg); */
-}
-
 .slanted-div:nth-child(even):before,
 .slanted-div:nth-child(even):after {
 	transform-origin: left top;
@@ -400,13 +418,6 @@ h2 {
 	bottom: 0;
 	transform-origin: right bottom;
 	transform: skewY(3deg);
-}
-
-/* displays the content inside, as these settings in the parent breaks the effect */
-.slanted-div div {
-	/* text-align: center;
-	font-size: 1.5em;
-	line-height: 1.5; */
 }
 
 #contact-form {
@@ -445,8 +456,51 @@ h2 {
 
 .section-title {
 	text-align: center;
-	margin: 70px 0 0 0;
+	margin: 70px 0 30px 0;
 	color: var(--secondary-color);
+	font-weight: bold;
+}
+
+.about-section {
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+    color: #333;
+    line-height: 1.8;
+}
+
+.vision-mission {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.vision, .mission {
+    flex: 1;
+    min-width: 300px;
+    margin: 20px;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.vision h3, .mission h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.vision p, .mission p {
+    color: #666;
+    line-height: 1.6;
 }
 
 .section-title::after {
@@ -478,24 +532,6 @@ h2 {
 .btn:focus {
 	outline: 0 !important;
 	box-shadow: initial !important;
-}
-
-.active:after {
-	content: " ";
-	text-align: center;
-	margin: 0px auto;
-	width: 70%;
-	display: block;
-	border: 2px solid #2186c8;
-	background: #238acb;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	-moz-border-radius: 4px;
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	/* transition: border-width 0.6s linear; */
-	animation: dropdown 0.4s ease-in-out;
 }
 
 @keyframes dropdown {
