@@ -45,15 +45,38 @@ $('#sub').click(function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize slider
-    var splide = new Splide('.splide', {
+    // Initialize gallery slider
+    var gallerySplide = new Splide('.Gallery .splide', {
         type: 'loop',
         autoWidth: true,
         speed: 700,
         autoplay: true,
         focus: 'center',
         padding: '2rem',
-		direction: 'rtl',
+        direction: 'rtl',
     });
-    splide.mount();
+    gallerySplide.mount();
+
+    // Initialize clients carousel
+    var clientsSplide = new Splide('.clients-carousel .splide', {
+        type: 'loop',
+        perPage: 3,
+        perMove: 1,
+        speed: 800,
+        autoplay: true,
+        interval: 3000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        arrows: false,
+        pagination: false,
+        gap: '2rem',
+        direction: 'rtl',
+        breakpoints: {
+            768: {
+                perPage: 1,
+                gap: '1rem',
+            }
+        }
+    });
+    clientsSplide.mount();
 });
