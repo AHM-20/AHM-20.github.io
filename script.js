@@ -1,5 +1,69 @@
 AOS.init();
 
+// Mobile Drawer Menu Functions
+function toggleMobileMenu() {
+    const drawer = document.getElementById('mobileDrawer');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const body = document.body;
+    
+    if (drawer.classList.contains('open')) {
+        closeMobileMenu();
+    } else {
+        openMobileMenu();
+    }
+}
+
+function openMobileMenu() {
+    const drawer = document.getElementById('mobileDrawer');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const body = document.body;
+    
+    drawer.classList.add('open');
+    menuBtn.classList.add('active');
+    body.classList.add('drawer-open');
+    
+    // Add animation delay for menu items
+    const menuItems = document.querySelectorAll('.drawer-nav-item');
+    menuItems.forEach((item, index) => {
+        item.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+    });
+}
+
+function closeMobileMenu() {
+    const drawer = document.getElementById('mobileDrawer');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const body = document.body;
+    
+    drawer.classList.remove('open');
+    menuBtn.classList.remove('active');
+    body.classList.remove('drawer-open');
+    
+    // Reset animation delays
+    const menuItems = document.querySelectorAll('.drawer-nav-item');
+    menuItems.forEach(item => {
+        item.style.animationDelay = '0s';
+    });
+}
+
+// Close drawer when clicking outside
+document.addEventListener('click', function(event) {
+    const drawer = document.getElementById('mobileDrawer');
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    
+    if (drawer.classList.contains('open') && 
+        !drawer.contains(event.target) && 
+        !menuBtn.contains(event.target)) {
+        closeMobileMenu();
+    }
+});
+
+// Close drawer on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
+
 // Smooth scroll to section with offset
 const scrollNav = (section) => {
     const element = document.getElementsByClassName(section)[0];
