@@ -707,9 +707,14 @@ h2 {
     top: 0;
     right: -100%;
     width: 100%;
-    height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height to avoid address bar clipping */
     z-index: 1000;
     transition: right 0.3s ease-in-out;
+}
+
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+    .mobile-drawer { height: 100vh; }
 }
 
 .mobile-drawer.open {
@@ -721,14 +726,14 @@ h2 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100dvh; /* Match dynamic viewport height */
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.mobile-drawer.open .drawer-overlay {
-    opacity: 1;
+@supports not (height: 100dvh) {
+    .drawer-overlay { height: 100vh; }
 }
 
 .drawer-content {
@@ -743,6 +748,7 @@ h2 {
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
+    padding-bottom: env(safe-area-inset-bottom); /* Prevent clipping behind home indicator */
 }
 
 .mobile-drawer.open .drawer-content {
@@ -755,6 +761,7 @@ h2 {
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: calc(20px + env(safe-area-inset-top)); /* Avoid notch overlap */
 }
 
 .drawer-logo {
@@ -838,6 +845,7 @@ h2 {
 .drawer-footer {
     padding: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 
 .contact-info-mobile {
@@ -900,6 +908,7 @@ h2 {
     
     .drawer-header {
         padding: 15px;
+        padding-top: calc(15px + env(safe-area-inset-top));
     }
     
     .drawer-logo {
@@ -913,6 +922,7 @@ h2 {
     
     .drawer-footer {
         padding: 15px;
+        padding-bottom: calc(15px + env(safe-area-inset-bottom));
     }
 }
 
